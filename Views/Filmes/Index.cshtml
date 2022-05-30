@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Cinema.Models.Filme>
+
+@{
+    ViewData["Title"] = "Filmes";
+}
+
+<h1>Lista dos Filmes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-light">Adicionar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeFilme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaFilme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sinopse)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeFilme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaFilme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sinopse)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FilmeId" class="btn btn-primary">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.FilmeId" class="btn btn-warning">Detalhes</a> 
+                <a asp-action="Delete" asp-route-id="@item.FilmeId" class="btn btn-danger">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

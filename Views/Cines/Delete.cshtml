@@ -1,0 +1,27 @@
+﻿@model Cinema.Models.Cine
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluindo</h1>
+
+<h3>Você quer mesmo excluir?</h3>
+<div>
+    <h4>Cinema</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LocalCinema)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LocalCinema)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CinemaId" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-info">Voltar</a>
+    </form>
+</div>

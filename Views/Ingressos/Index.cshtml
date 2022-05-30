@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Cinema.Models.Ingresso>
+
+@{
+    ViewData["Title"] = "Ingressos";
+}
+
+<h1>Lista de Ingressos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-light">Adicionar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cinema)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sessao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoIngresso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cinema.LocalCinema)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Filme.NomeFilme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sessao.NumSala)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora.Horario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoIngresso.TIngresso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assento.AssentoId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IngressoId" class="btn btn-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IngressoId" class="btn btn-warning">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IngressoId" class="btn btn-danger">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

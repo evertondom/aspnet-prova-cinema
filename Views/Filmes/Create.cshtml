@@ -1,0 +1,44 @@
+﻿@model Cinema.Models.Filme
+
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h1>Novo Cadastro</h1>
+
+<h4>Filme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeFilme" class="control-label"></label>
+                <input asp-for="NomeFilme" class="form-control" />
+                <span asp-validation-for="NomeFilme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoriaFilme" class="control-label"></label>
+                <input asp-for="CategoriaFilme" class="form-control" />
+                <span asp-validation-for="CategoriaFilme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sinopse" class="control-label"></label>
+                <input asp-for="Sinopse" class="form-control" />
+                <span asp-validation-for="Sinopse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-info">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
